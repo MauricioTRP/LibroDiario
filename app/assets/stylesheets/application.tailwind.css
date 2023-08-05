@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes vanish-anim {
+    0% {
+        display: flex;
+    }
+    100% {
+        display: none;
+    }
+};
+
+.vanish {
+    animation: vanish-anim 3s;
+};
