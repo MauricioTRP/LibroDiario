@@ -10,11 +10,24 @@
 			<ul class="flex font-semibold justify-between">
                 <!-- Active Link = text-indigo-500
                 Inactive Link = hover:text-indigo-500 -->
-				<li class="md:px-4 md:py-2 text-indigo-500"><a href="#">Dashboard</a></li>
-				<li class="md:px-4 md:py-2 hover:text-indigo-400"><a href="#">Search</a></li>
-				<li class="md:px-4 md:py-2 hover:text-indigo-400"><a href="#">Explore</a></li>
-				<li class="md:px-4 md:py-2 hover:text-indigo-400"><a href="#">About</a></li>
-				<li class="md:px-4 md:py-2 hover:text-indigo-400"><a href="#">Contact</a></li>
+
+
+				<%= link_to "Dashboard", root_path, class:'md:px-4 md:py-2 hover:text-indigo-400', "data-toggle-class" => "text-indigo-500" %>
+				<%= link_to "Search", '', class:'md:px-4 md:py-2 hover:text-indigo-400', "data-toggle-class" => "text-indigo-500" %>
+				<%= link_to "Explore", '#', class:'md:px-4 md:py-2 hover:text-indigo-400', "data-toggle-class" => "text-indigo-500" %>
+				<%= link_to "About", '#', class:'md:px-4 md:py-2 hover:text-indigo-400', "data-toggle-class" => "text-indigo-500" %>
+				<%= link_to "Contact", '#', class:'md:px-4 md:py-2 hover:text-indigo-400', "data-toggle-class" => "text-indigo-500" %>
+				
+				<!-- ENLACES ORIGINALES TEMPLATE -->
+				<!-- 
+				# TODO add ajax to links https://guides.rubyonrails.org/v6.1.0/working_with_javascript_in_rails.html 
+									-->
+				
+				<!-- <li class="md:px-4 md:py-2 text-indigo-500"><a href="#">Dashboard</a></li> -->
+				<!-- <li class="md:px-4 md:py-2 hover:text-indigo-400"><a href="#">Search</a></li> -->
+				<!-- <li class="md:px-4 md:py-2 hover:text-indigo-400"><a href="#">Explore</a></li> -->
+				<!-- <li class="md:px-4 md:py-2 hover:text-indigo-400"><a href="#">About</a></li> -->
+				<!-- <li class="md:px-4 md:py-2 hover:text-indigo-400"><a href="#">Contact</a></li> -->
 			</ul>
 		</div>
 		<div class="order-2 md:order-3">
