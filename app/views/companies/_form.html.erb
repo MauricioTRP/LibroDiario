@@ -1,0 +1,82 @@
+<%= form_with(model: company) do |form| %>
+  <% if company.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+      <ul>
+        <% company.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :formal_name, style: "display: block" %>
+    <%= form.text_field :formal_name %>
+  </div>
+
+  <div>
+    <%= form.label :rut, style: "display: block" %>
+    <%= form.text_field :rut %>
+  </div>
+
+
+  <%= form.fields_for :contact_info do |contact| %>
+    <div>
+      <%= contact.label :phone_1, style: "display: block" %>
+      <%= contact.text_field :phone_1 %>
+    </div>
+
+    <div>
+      <%= contact.label :phone_2, style: "display: block" %>
+      <%= contact.text_field :phone_2 %>
+    </div>
+
+    <div>
+      <%= contact.label :email_1, style: "display: block" %>
+      <%= contact.text_field :email_1 %>
+    </div>
+
+    <div>
+      <%= contact.label :email_2, style: "display: block" %>
+      <%= contact.text_field :email_2 %>
+    </div>
+  <% end %>
+
+  <%= form.fields_for :address do |address| %>
+    <div>
+      <%= address.label :street_address, style: "display: block" %>
+      <%= address.text_field :street_address %>
+    </div>
+
+    <div>
+      <%= address.label :city, style: "display: block" %>
+      <%= address.text_field :city %>
+    </div>
+    
+    <div>
+      <%= address.label :state, style: "display: block" %>
+      <%= address.text_field :state %>
+    </div>
+
+    <div>
+      <%= address.label :zip, style: "display: block" %>
+      <%= address.text_field :zip %>
+    </div>    
+  <% end %>
+
+  <div>
+    <%= form.label :line_of_business, style: "display: block" %>
+    <%= form.text_field :line_of_business %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
