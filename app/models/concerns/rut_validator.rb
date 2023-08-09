@@ -4,8 +4,12 @@
 class RutValidator < ActiveModel::Validator
   def validate(record)
     rut, control = record.rut.split(/-/)
-    unless control_digit(rut).downcase == control.downcase
-      record.errors.add :rut, "is not a valid rut"
+    if record.rut.empty?
+      record.errors.add :rut, 'Company must have a rut'
+    else
+      unless control_digit(rut).downcase == control.downcase
+        record.errors.add :rut, "is not a valid rut"
+      end
     end
   end
 

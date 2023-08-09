@@ -3,4 +3,5 @@ class Company < ApplicationRecord
 
   # ============ Validations ==============
   validates_with RutValidator
+  validates_with ContactInfoValidator
 end
