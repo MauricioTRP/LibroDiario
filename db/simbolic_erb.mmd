@@ -1,0 +1,32 @@
+---
+title: Empresa example
+---
+classDiagram
+    Boleta <-- Mercaderías
+    note for Mercaderías "Genera atributos válidos\npara Mercaderías"
+    note for Boleta "must be send by email\n"
+    Empresa --|> Boleta
+    Empresa: +string Nombre Empresa
+    Empresa: +string Razón Social
+    Empresa: +string Rut
+    Empresa: +string Comuna
+    Empresa: +string Giro del Negocio
+    Empresa: +string Telefono
+
+    Empresa: +emiteDocumentoContable()
+    Empresa: +prestaServicios()
+    class Mercaderías{
+        +string Nombre
+        +int Stock
+        +text Descripción
+        +date Fecha Elaboración
+        +date Fecha Vencimiento
+        +cambiaStock()
+    }
+    class Boleta{
+        +date Fecha Emisión
+        +hash Datos Productos
+        +hash Datos Cliente
+        +hash Datos Convenidos
+        -enviaDuplicado()
+    }
