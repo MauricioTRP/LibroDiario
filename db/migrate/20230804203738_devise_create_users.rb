@@ -35,7 +35,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :last_name
       t.string :rut
-      t.text :address
+      t.json :address
+      t.json :contact_info
 
       t.timestamps null: false
     end

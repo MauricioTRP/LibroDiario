@@ -6,7 +6,10 @@ Rails.application.routes.draw do
     get '/logout' => 'devise/sessions#destroy'
   end
 
-  resources :users, :controller => 'users'
+  scope '/admin' do
+    resources :users, :controller => 'users'
+  end
+
   root 'home#index'
   get '/about', to: 'home#about'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

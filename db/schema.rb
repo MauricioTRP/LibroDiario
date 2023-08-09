@@ -35,7 +35,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_08_015523) do
     t.string "name"
     t.string "last_name"
     t.string "rut"
-    t.text "address"
+    t.json "address"
+    t.json "contact_info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role", default: 1
