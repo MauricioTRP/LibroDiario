@@ -7,12 +7,16 @@ class ContactInfoValidator < ActiveModel::Validator
       record.errors.add :phone, "Must add at least one phone number"
     end
 
-    address_values?(record)
+    address_values(record)
+    email_values(record) unless record.instance_of?(User)
   end
 
   private
 
   def phone_values?(record)
+    puts "==================="
+    puts record.contact_info
+    puts "==================="
     phones = %w[ phone_1 phone_2 ]
     begin
       (record.contact_info[phones[0]]&.empty? || record.contact_info[phones[1]]&.empty?)
@@ -21,7 +25,17 @@ class ContactInfoValidator < ActiveModel::Validator
     end
   end
 
-  def address_values?(record)
+  def email_values(record)
+    emails = %w[email_1 email_2]
+    begin
+      (record.contact_info[emails[0]]&.empty? || record.contact_info[emails[1]]&.empty?)
+    rescue NoMethodError
+      record.errors.add :email, "Must have at least one email"
+    end
+    
+  end
+
+  def address_values(record)
     address_fields = %w[ street_address city state zip ]
 
     begin

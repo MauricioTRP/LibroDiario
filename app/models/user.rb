@@ -8,6 +8,6 @@ class User < ApplicationRecord
   enum role: { admin: 0, normal_user: 1 }
 
   # ============ Validations ==============
-  # validates_with ContactInfoValidator
-
+  validates_with ContactInfoValidator
+  validates_with RutValidator
 end
