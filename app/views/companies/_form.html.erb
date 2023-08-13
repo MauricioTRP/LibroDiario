@@ -1,82 +1,90 @@
-<%= form_with(model: company) do |form| %>
-  <% if company.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+          <div class="lg:col-span-2">
+            <%= form_with(model: company) do |form| %>
+            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+              <% if company.errors.any? %>
+                <div style="color: red">
+                  <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
 
-      <ul>
-        <% company.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+                  <ul>
+                    <% company.errors.each do |error| %>
+                      <li><%= error.full_message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
+              <div class="md:col-span-5">
+                <%= form.label :name %>
+                <%= form.text_field :name, placeholder: 'Name', class: 'h-10 border mt-1 rounded px-4 w-full bg-gray-50' %>
+              </div>
 
-  <div>
-    <%= form.label :formal_name, style: "display: block" %>
-    <%= form.text_field :formal_name %>
-  </div>
+              <div class="md:col-span-5">
+                <%= form.label :formal_name %>
+                <%= form.text_field :formal_name, placeholder: 'Formal Name', class: 'h-10 border mt-1 rounded px-4 w-full bg-gray-50' %>
+              </div>
 
-  <div>
-    <%= form.label :rut, style: "display: block" %>
-    <%= form.text_field :rut %>
-  </div>
+              <div class="md:col-span-2">
+                <%= form.label :rut %>
+                <%= form.text_field :rut, placeholder: 'Rut', class: 'h-10 border mt-1 rounded px-4 w-full bg-gray-50' %>
+              </div>
 
+              <%= form.fields_for :contact_info do |contact| %>
+                <div class="md:col-span-2">
+                  <%= contact.label :phone_1 %>
+                  <%= contact.phone_field :phone_1, placeholder: 'Phone', class: 'h-10 border mt-1 rounded px-4 w-full bg-gray-50' %>
+                </div>
 
-  <%= form.fields_for :contact_info do |contact| %>
-    <div>
-      <%= contact.label :phone_1, style: "display: block" %>
-      <%= contact.text_field :phone_1 %>
-    </div>
+                <div class="md:col-span-2">
+                  <%= contact.label :phone_2 %>
+                  <%= contact.phone_field :phone_2, placeholder: 'Phone 2 (optional)', class: 'h-10 border mt-1 rounded px-4 w-full bg-gray-50' %>
+                </div>
 
-    <div>
-      <%= contact.label :phone_2, style: "display: block" %>
-      <%= contact.text_field :phone_2 %>
-    </div>
+                <div class="md:col-span-2">
+                  <%= contact.label :email_1 %>
+                  <%= contact.phone_field :email_1, placeholder: 'Email', class: 'h-10 border mt-1 rounded px-4 w-full bg-gray-50' %>
+                </div>
 
-    <div>
-      <%= contact.label :email_1, style: "display: block" %>
-      <%= contact.text_field :email_1 %>
-    </div>
+                <div class="md:col-span-2">
+                  <%= contact.label :email_2 %>
+                  <%= contact.phone_field :email_2, placeholder: 'Email 2 (optional)', class: 'h-10 border mt-1 rounded px-4 w-full bg-gray-50' %>
+                </div>
 
-    <div>
-      <%= contact.label :email_2, style: "display: block" %>
-      <%= contact.text_field :email_2 %>
-    </div>
-  <% end %>
+              <% end %>
 
-  <%= form.fields_for :address do |address| %>
-    <div>
-      <%= address.label :street_address, style: "display: block" %>
-      <%= address.text_field :street_address %>
-    </div>
+              <%= form.fields_for :address do |address| %>
 
-    <div>
-      <%= address.label :city, style: "display: block" %>
-      <%= address.text_field :city %>
-    </div>
-    
-    <div>
-      <%= address.label :state, style: "display: block" %>
-      <%= address.text_field :state %>
-    </div>
+                <div class="md:col-span-2">
+                  <%= address.label :street_address %>
+                  <%= address.text_field :street_address, placeholder: 'Address/Street', class: 'h-10 border mt-1 rounded px-4 w-full bg-gray-50' %>
+                </div>
 
-    <div>
-      <%= address.label :zip, style: "display: block" %>
-      <%= address.text_field :zip %>
-    </div>    
-  <% end %>
+                <div class="md:col-span-2">
+                  <%= address.label :city %>
+                  <%= address.text_field :city, placeholder: 'City', class: 'h-10 border mt-1 rounded px-4 w-full bg-gray-50' %>
+                </div>
+                
+                <div class="md:col-span-2">
+                  <%= address.label :state %>
+                  <%= address.text_field :state, placeholder: 'State', class: 'h-10 border mt-1 rounded px-4 w-full bg-gray-50' %>
+                </div>
 
-  <div>
-    <%= form.label :line_of_business, style: "display: block" %>
-    <%= form.text_field :line_of_business %>
-  </div>
+                <div class="md:col-span-1">
+                  <%= address.label :zip %>
+                  <%= address.text_field :zip, placeholder: 'Zip', class: 'h-10 border mt-1 rounded px-4 w-full bg-gray-50' %>
+                </div>
+              <% end %>
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+              <div class="md:col-span-2">
+                <%= form.label :line_of_business %>
+                <%= form.text_field :line_of_business, placeholder: 'Line of Business', class: 'h-10 border mt-1 rounded px-4 w-full bg-gray-50' %>
+              </div>
+
+              <div class="md:col-span-5 text-right">
+                <div class="inline-flex items-end">
+                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          </div>
+           
