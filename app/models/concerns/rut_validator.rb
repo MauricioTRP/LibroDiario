@@ -3,13 +3,13 @@
 # Custom method to validate Chilean Rut on User Model
 class RutValidator < ActiveModel::Validator
   def validate(record)
-    rut, control = record.rut.split(/-/)
-    if record.rut.empty?
-      record.errors.add :rut, 'Company must have a rut'
-    else
+    begin
+      rut, control = record.rut.split(/-/)
       unless control_digit(rut).downcase == control.downcase
-        record.errors.add :rut, "is not a valid rut"
+        record.errors.add :rut, "must be valid"
       end
+    rescue NoMethodError
+      record.errors.add :rut, 'must be present'
     end
   end
 
