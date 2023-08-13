@@ -18,10 +18,6 @@ class UsersController < ApplicationController
     end
     password_setting(@user)
 
-    logger.debug "Creating User"
-    logger.debug "Must be a valid user: #{@user.valid?}"
-    logger.debug "Errors: #{@user.errors.full_messages}"
-
     if @user.save
       flash[:notice] = "Successfully created User."
       redirect_to root_path
