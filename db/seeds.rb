@@ -51,3 +51,12 @@ User.create(
     phone_2: '7654321'
   }
 )
+
+puts '====================Creating AccountTypes===================='
+
+AccountType.create([
+  {code: 1, name: 'Activo'},
+  {code: 2, name: 'Pasivo'},
+  {code: 3, name: 'Capital'},
+  {code: 4, name: 'Resultado'}
+])
