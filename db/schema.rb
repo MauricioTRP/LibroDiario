@@ -24,7 +24,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_14_032155) do
   create_table "accounts", force: :cascade do |t|
     t.string "code"
     t.string "name"
+    t.string "description"
     t.bigint "type_id", null: false
+    t.string "subtype"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["type_id"], name: "index_accounts_on_type_id"
