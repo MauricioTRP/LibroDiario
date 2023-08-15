@@ -25,7 +25,7 @@ class ContactInfoValidator < ActiveModel::Validator
   def email_values(record)
     emails = %w[email_1 email_2]
     begin
-      (record.contact_info[emails[0]]&.empty? || record.contact_info[emails[1]]&.empty?)
+      (record.contact_info[emails[0]]&.empty? && record.contact_info[emails[1]]&.empty?)
     rescue NoMethodError
       record.errors.add :email, "Must have at least one email"
     end
@@ -41,7 +41,7 @@ class ContactInfoValidator < ActiveModel::Validator
         end
       end
     rescue NoMethodError
-      record.errors.add :address, "Must have address field"
+      record.errors.add :address, "Must have address fields"
     end
   end
 end

@@ -15,6 +15,17 @@
           <div class="lg:col-span-2">
             <%= form_with(model: user) do |form| %>
               <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+                <% if user.errors.any? %>
+                <div style="color: red">
+                  <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+                  <ul>
+                    <% user.errors.each do |error| %>
+                      <li><%= error.full_message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
                 <div class="md:col-span-5">
                   <%= form.label :name %>
                   <%= form.text_field :name, placeholder: 'Name', class: 'h-10 border mt-1 rounded px-4 w-full bg-gray-50' %>

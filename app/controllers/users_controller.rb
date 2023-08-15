@@ -21,6 +21,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:notice] = "Successfully created User."
       redirect_to root_path
+      # TODO Enviar mail con password
     else
       flash[:alert] = @user.errors.full_messages
       render :action => 'new'
