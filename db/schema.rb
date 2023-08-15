@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_14_032155) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_15_051534) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,10 +60,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_14_032155) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role", default: 1
+    t.bigint "supervisor_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["supervisor_id"], name: "index_users_on_supervisor_id"
   end
 
   add_foreign_key "accounts", "account_types", column: "type_id"
   add_foreign_key "companies", "users"
+  add_foreign_key "users", "users", column: "supervisor_id"
 end
