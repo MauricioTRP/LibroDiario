@@ -1,4 +1,4 @@
-<tr id="<%= dom_id account %>">
+<tr id="<%= dom_id account %>" class="even:bg-gray-50 odd:bg-transparent break-words ">
   <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-gray-700">
     <div class="popover inline-block" data-controller="popover" data-popover-translate-x="0" data-popover-translate-y="-128%" data-action="mouseover->popover#mouseOver mouseout->popover#mouseOut">
       <%= link_to account.name, account %>
@@ -16,8 +16,7 @@
   <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
     <%= account.type.code %>.<%= account.code %>
   </td>
-  <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
-    <%= account.description %>
+  <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs p-4 ">
+    <p class="break-normal"><%= account.description %></p>
   </td>
 </tr>
-<tr>
