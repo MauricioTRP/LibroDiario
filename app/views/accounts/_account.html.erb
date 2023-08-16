@@ -1,17 +1,23 @@
-<div id="<%= dom_id account %>">
-  <p>
-    <strong>Code:</strong>
-    <%= account.code %>
-  </p>
-
-  <p>
-    <strong>Name:</strong>
-    <%= account.name %>
-  </p>
-
-  <p>
-    <strong>Type:</strong>
-    <%= account.type_id %>
-  </p>
-
-</div>
+<tr id="<%= dom_id account %>">
+  <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-gray-700">
+    <div class="popover inline-block" data-controller="popover" data-popover-translate-x="0" data-popover-translate-y="-128%" data-action="mouseover->popover#mouseOver mouseout->popover#mouseOut">
+      <%= link_to account.name, account %>
+      <div class="content hidden absolute max-w-xs bg-gray-300 rounded p-2" data-popover-target="content">
+        Show this account
+      </div>
+    </div>
+  </th>
+  <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+    <%= account.type.name %>
+  </td>
+  <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+    <%= account.subtype %>
+  </td>
+  <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+    <%= account.type.code %>.<%= account.code %>
+  </td>
+  <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+    <%= account.description %>
+  </td>
+</tr>
+<tr>
