@@ -1,0 +1,26 @@
+<tr id="<%= dom_id user %>" class="even:bg-gray-50 odd:bg-transparent break-words ">
+  <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-gray-700">
+    <div class="popover inline-block" data-controller="popover" data-popover-translate-x="0" data-popover-translate-y="-128%" data-action="mouseover->popover#mouseOver mouseout->popover#mouseOut">
+      <%= link_to user.name, user %>
+      <div class="content hidden absolute max-w-xs bg-gray-300 rounded p-2" data-popover-target="content">
+        Show this user
+      </div>
+    </div>
+  </th>
+  <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+    <%= user.last_name %>
+  </td>
+  <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+    <%= user.email %>
+  </td>
+  <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+    <%= user.rut %>
+  </td>
+  <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs p-4 ">
+    <p class="break-normal">
+      <% user.address.each do |_address_key, address_v| %>
+        <%= address_v %>, 
+      <% end %>
+    </p>
+  </td>
+</tr>

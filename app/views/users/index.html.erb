@@ -1,0 +1,54 @@
+<!-- component -->
+
+
+<section class="py-1 bg-gray-100">
+<div class="w-full xl:w-8/12 mb-12 xl:mb-0 px-4 mx-auto mt-24">
+  <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded ">
+    <div class="rounded-t mb-0 px-4 py-3 border-0">
+      <div class="flex flex-wrap items-center">
+        <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+          <h3 class="font-semibold text-base text-gray-700">Cuentas</h3>
+        </div>
+        <p style="color: green"><%= notice %></p>
+        <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
+          <%= link_to "New worker", new_user_path, class: "bg-indigo-500 hover:bg-indigo-600 text-gray-50 text-white text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="block w-full overflow-hidden">
+      <table class="table-auto items-center bg-transparent w-full border-collapse mx-auto overflow-hidden ">
+        <caption class="caption-bottom text-gray-500">Trabajadores</caption>
+        <thead>
+          <tr>
+            <th class="px-6 bg-gray-100 text-gray-500 align-middle border border-solid border-gray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                          Nombre
+                        </th>
+            <th class="px-6 bg-gray-100 text-gray-500 align-middle border border-solid border-gray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                          Clasificación
+                        </th>
+             <th class="px-6 bg-gray-100 text-gray-500 align-middle border border-solid border-gray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                          Subclasificación
+                        </th>
+            <th class="px-6 bg-gray-100 text-gray-500 align-middle border border-solid border-gray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                          Código
+                        </th>
+            <th class="px-6 bg-gray-100 text-gray-500 align-middle border border-solid border-gray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                          Dirección
+                        </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @users.each do |user| %>
+            <%= render user %>
+          <% end %>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+</div>
+</section>
+</div>
+
