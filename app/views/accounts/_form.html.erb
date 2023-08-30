@@ -23,7 +23,7 @@
 
   <div>
     <%= form.label :type_id, style: "display: block" %>
-    <%= form.text_field :type_id %>
+    <%= form.options_for_select(account.type) %>
   </div>
 
   <div>
