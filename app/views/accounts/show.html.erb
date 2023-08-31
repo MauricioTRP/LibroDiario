@@ -1,5 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
+
+<!-- 
 <%= render @account %>
 
 <div>
@@ -7,4 +9,32 @@
   <%= link_to "Back to accounts", accounts_path %>
 
   <%= button_to "Destroy this account", @account, method: :delete %>
+</div>
+
+-->
+
+<!-- Creando layout para disponer información de Cuenta -->
+<div class="flex 
+            w-10/12
+            ">
+  <p>Plan de Cuentas</p>
+
+  <input type="checkbox" disabled readonly checked="checked">
+  <%= button_to "Destroy this account", @account, method: :delete, class:"px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-gray-50 rounded-xl flex items-center gap-2" %>
+  <div class="  
+              grid grid-cols-4 gap-2 
+              h-40 w-10/12
+              mx-auto mt-10
+              drop-shadow-md hover:drop-shadow-xl
+              box-border border-2 border-slate border-solid border-radius-3">
+    
+    <h1 class="col-span-4 md:col-span-1 row-span-2 p-2">
+      <%= @account.name %>
+    </h1>
+
+    <div><%= @account.type.name %></div>
+    <div><%= @account.subtype %></div>
+    <div><%= @account.type.code %></div>
+    <div><%= @account.description %></div>
+  </div>
 </div>
