@@ -64,7 +64,7 @@ class UsersController < ApplicationController
       :rut,
       :email,
       contact_info: %i[phone_1 phone_2 email_1 email_2],
-      address: %i[street_address city state zip]
+      address: %i[street_address comune province region zip]
     )
   end
 
