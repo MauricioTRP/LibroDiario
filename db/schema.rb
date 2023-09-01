@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_15_051534) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_01_005141) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,6 +46,31 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_15_051534) do
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
+  create_table "comunes", force: :cascade do |t|
+    t.string "comuna"
+    t.bigint "province_id", null: false
+    t.bigint "region_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["province_id"], name: "index_comunes_on_province_id"
+    t.index ["region_id"], name: "index_comunes_on_region_id"
+  end
+
+  create_table "provinces", force: :cascade do |t|
+    t.string "provincia"
+    t.bigint "region_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["region_id"], name: "index_provinces_on_region_id"
+  end
+
+  create_table "regions", force: :cascade do |t|
+    t.string "region"
+    t.string "ordinal"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -69,4 +94,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_15_051534) do
   add_foreign_key "accounts", "account_types", column: "type_id"
   add_foreign_key "companies", "users"
   add_foreign_key "users", "users", column: "supervisor_id"
+  add_foreign_key "comunes", "provinces"
+  add_foreign_key "comunes", "regions"
+  add_foreign_key "provinces", "regions"
 end
