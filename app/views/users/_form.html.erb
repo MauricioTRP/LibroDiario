@@ -62,18 +62,23 @@
                 <%= form.fields_for :address do |address| %>
 
                   <div class="md:col-span-2">
-                    <%= address.label :street_address %>
-                    <%= address.text_field :street_address, placeholder: 'Address/Street', class: 'h-10 border mt-1 rounded px-4 w-full bg-gray-50' %>
+                    <%= address.label :region %>
+                    <%= region_address(address) %>
                   </div>
 
                   <div class="md:col-span-2">
-                    <%= address.label :city %>
-                    <%= address.text_field :city, placeholder: 'City', class: 'h-10 border mt-1 rounded px-4 w-full bg-gray-50' %>
+                    <%= address.label :province %>
+                    <%= province_address(address) %>
+                  </div>
+
+                  <div class="md:col-span-2">
+                    <%= address.label :comune %>
+                    <%= comune_address(address) %>
                   </div>
                   
                   <div class="md:col-span-2">
-                    <%= address.label :state %>
-                    <%= address.text_field :state, placeholder: 'State', class: 'h-10 border mt-1 rounded px-4 w-full bg-gray-50' %>
+                    <%= address.label :street_address %>
+                    <% address.text_field :street_address, placeholder: 'Address/Street', class: 'h-10 border mt-1 rounded px-4 w-full bg-gray-50' %>
                   </div>
 
                   <div class="md:col-span-1">
@@ -81,7 +86,7 @@
                     <%= address.text_field :zip, placeholder: 'Zip', class: 'h-10 border mt-1 rounded px-4 w-full bg-gray-50' %>
                   </div>
                 <% end %>
-
+                  
 
 
         
