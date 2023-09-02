@@ -58,8 +58,9 @@ User.create(
   password_confirmation: '123456',
   address: {
     "street_address": 'calle 123',
-    "city": 'ciudad',
-    "state": 'region',
+    "region_id": '13',
+    "province_id": '39',
+    "comune_id": '244',
     "zip": '111111'
   },
   contact_info: {
@@ -75,13 +76,14 @@ User.create(
   name: 'normal',
   last_name: 'normal',
   rut: '22222222-2',
-  role: 'normal_user',
+  role: 'worker',
   password: '123456',
   password_confirmation: '123456',
   address: {
     "street_address": 'calle 123',
-    "city": 'ciudad',
-    "state": 'region',
+    "region_id": '13',
+    "province_id": '39',
+    "comune_id": '244',
     "zip": '111111'
   },
   contact_info: {
