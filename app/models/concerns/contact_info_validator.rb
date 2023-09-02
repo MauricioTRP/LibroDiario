@@ -32,8 +32,7 @@ class ContactInfoValidator < ActiveModel::Validator
   end
 
   def address_values(record)
-    address_fields = %w[ street_address city state zip ]
-
+    address_fields = %w[ street_address comune_id province_id region_id zip ]
     begin
       address_fields.each do |field|
         if record.address[field].empty?

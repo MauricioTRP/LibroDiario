@@ -72,7 +72,7 @@ class CompaniesController < ApplicationController
       :rut,
       :line_of_business,
       contact_info: [:phone_1, :phone_2, :email_1, :email_2],
-      address: [:street_address, :city, :state, :zip]
+      address: [:street_address, :comune_id, :province_id, :region_id, :zip]
     )
   end
 

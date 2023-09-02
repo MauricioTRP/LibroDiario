@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       params[:user].delete(:password_confirmation)
     end
     password_setting(@user)
-
+    debugger
     if @user.save
       flash[:notice] = "Successfully created User."
       redirect_to root_path
@@ -68,7 +68,7 @@ class UsersController < ApplicationController
       :rut,
       :email,
       contact_info: %i[phone_1 phone_2 email_1 email_2],
-      address: %i[street_address comune province region zip]
+      address: %i[street_address comune_id province_id region_id zip]
     )
   end
 
