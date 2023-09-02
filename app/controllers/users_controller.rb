@@ -21,14 +21,17 @@ class UsersController < ApplicationController
       params[:user].delete(:password_confirmation)
     end
     password_setting(@user)
-    if @user.save
-      flash[:notice] = "Successfully created User."
-      redirect_to root_path
-      # TODO Enviar mail con password
-    else
-      flash[:alert] = @user.errors.full_messages
-      render :action => 'new'
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to users_path, notice: 'Successfully created User.' }
+        format.json { render :show, status: :created, location: @user }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
+
+      # TODO Enviar mail con password
   end
 
   def edit
@@ -80,7 +83,7 @@ class UsersController < ApplicationController
   end
 
   def is_admin?
-    if not current_user.admin?
+    unless current_user.admin?
       respond_to do |format|
         format.html { redirect_to root_path, alert: "Only admins can access" }
       end
