@@ -21,7 +21,6 @@ class UsersController < ApplicationController
       params[:user].delete(:password_confirmation)
     end
     password_setting(@user)
-    debugger
     if @user.save
       flash[:notice] = "Successfully created User."
       redirect_to root_path
