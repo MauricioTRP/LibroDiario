@@ -31,7 +31,7 @@ class UsersController < ApplicationController
       end
     end
 
-      # TODO Enviar mail con password
+    # TODO: ENVIAR EMAIL CON PASSWORD AL CREAR NUEVO USUARIO
   end
 
   def edit
